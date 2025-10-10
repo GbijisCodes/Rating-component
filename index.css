@@ -5,7 +5,7 @@
 }
 
 body{
-    
+    height: 500px;
     background-color: hsl(216, 12%, 8%);
 }
 
@@ -21,14 +21,16 @@ body{
 
 
   .box {
-    height: 400px;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;   /* prevents it from stretching too wide */
+    height: auto;
     background: linear-gradient(to bottom, hsl(215, 19%, 17%), hsl(216, 12%, 8%));
-    margin: 200px auto;
+    margin: 200px auto;  /* smaller top margin for small screens */
     border-radius: 30px;
-    padding-top: 30px; /* pushes all content down evenly */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.581); /* subtle shadow */
+    padding: 30px 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.58);
   }
+  
   
   
   .star {
@@ -119,4 +121,56 @@ button:hover{
     color: white;
   }
   
+  @media (max-width: 480px) {
+    .how {
+      font-size: 22px;
+      text-align: center;
+    }
   
+    .info {
+      font-size: 13px;
+      text-align: center;
+    }
+  
+    .buts {
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    button.rate-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 14px;
+    }
+  
+    #submit {
+      font-size: 14px;
+      padding: 10px 0;
+    }
+  
+    .star {
+      height: 40px;
+      width: 40px;
+      margin: 0 auto 20px; /* center on mobile */
+    }
+  
+    .box {
+      margin: 200px auto;
+      padding: 20px;
+    }
+  }
+  
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    .how {
+      font-size: 26px;
+    }
+    .info {
+      font-size: 14px;
+    }
+    button.rate-btn {
+      width: 45px;
+      height: 45px;
+    }
+  }
