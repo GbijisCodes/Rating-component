@@ -1,0 +1,108 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    
+    background-color: hsl(216, 12%, 8%);
+}
+
+@font-face {
+    font-family: Overpass;
+    src: url(./overpass/overpass-regular.otf);
+  }
+  @font-face {
+    font-family: Overpassb;
+    src: url(./overpass/overpass-bold.otf);
+  }
+
+
+
+  .box {
+    height: 400px;
+    width: 400px;
+    background: linear-gradient(to bottom, hsl(215, 19%, 17%), hsl(216, 12%, 8%));
+    margin: 200px auto;
+    border-radius: 30px;
+    padding-top: 30px; /* pushes all content down evenly */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.581); /* subtle shadow */
+  }
+  
+  
+ 
+  .how{
+    font-family: Overpassb;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+  }
+
+  .box2{
+    /* border: 1px solid white; */
+    width: 85%;
+    margin: 0 auto;
+  }
+
+
+  .info{
+    font-family: Overpass;
+    font-size: 15px;
+    color: hsl(217, 12%, 63%);
+    margin-top: 10px;
+    text-align: center;
+  }
+
+.buts{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+  
+/* button{
+    font-family: Overpassb;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    color: hsl(217, 12%, 63%);
+    background-color:  hsl(217, 12%, 20%);
+} */
+/* 
+button:hover{
+    cursor: pointer;
+    background-color: hsl(0, 100%, 100%);
+    font-family: Overpassb;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    color: hsl(217, 12%, 63%);
+} */
+
+.sub {
+    background-color: hsla(217, 12%, 63%, 0.15);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px; /* controls height/width */
+    color: hsl(25, 97%, 53%);
+    font-family: Overpassb;
+    font-size: 10px;
+    text-align: center;
+    width: fit-content; /* shrink to text size */
+    margin: 0 auto 20px; /* centers it and adds space below */
+  }
+  
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .image img {
+    width: 150px; /* optional — adjust size */
+    height: auto;
+  }
+  

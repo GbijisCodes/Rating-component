@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="thankyou.css">
+
+  
+  <title>Interactive rating component</title>
+
+
+  
+</head>
+<body>
+  <div class="box">
+    <!-- <div class="star">
+      <img src="./images/icon-star.svg" alt="">
+    </div> -->
+    <div class="image"><img src="./images/illustration-thank-you.svg" alt="Thank you Image"></div>
+   <div class="box2">
+    <div class="sub">You selected <span class="rating-value">4</span> out of 5</div>
+    <p class="how">Thank you</p>
+    <p class="info">We apprecite you taking the time to give us a rating. If you ever need any help, don' t hesistate to get in touch!</p>
+
+    
+
+    
+
+   </div>
+
+  </div>
+</body>
+<script>
+const rating =localStorage.getItem('rating')
+if(rating){
+    document.querySelector('.rating-value').textContent = rating;
+
+}
+</script>
+</html>
