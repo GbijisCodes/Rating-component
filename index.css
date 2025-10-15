@@ -5,8 +5,14 @@
 }
 
 body{
-    height: 500px;
+
+    height: 100vh;
     background-color: hsl(216, 12%, 8%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Overpass, sans-serif;
+  
 }
 
 @font-face {
@@ -18,19 +24,16 @@ body{
     src: url(./overpass/overpass-bold.otf);
   }
 
-
-
   .box {
     width: 90%;
-    max-width: 400px;   /* prevents it from stretching too wide */
-    height: auto;
+    max-width: 400px;
     background: linear-gradient(to bottom, hsl(215, 19%, 17%), hsl(216, 12%, 8%));
-    margin: 200px auto;  /* smaller top margin for small screens */
     border-radius: 30px;
     padding: 30px 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.58);
+    color: white;          /* ✅ added */
   }
-  
+
   
   
   .star {
@@ -41,14 +44,22 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 30px 30px;
+    margin-bottom: 30px; /* was margin: 0 30px 30px; */
   }
+  
 
-  .how{
+  .how {
     font-family: Overpassb;
-    font-size: 30px;
-    color: white;
+    font-size: 26px; /* was 30px */
+    margin-bottom: 10px; /* added */
   }
+  
+  .info {
+    color: hsl(217, 12%, 63%);
+    font-size: 15px;
+    margin-bottom: 25px; /* added for spacing consistency */
+  }
+  
 
   .box2{
     /* border: 1px solid white; */
@@ -57,39 +68,31 @@ body{
   }
 
 
-  .info{
-    font-family: Overpass;
-    font-size: 15px;
-    color: hsl(217, 12%, 63%);
-    margin-top: 10px;
-  }
+ 
 
-.buts{
-    margin-top: 30px;
+  .buts {
     display: flex;
-    justify-content: space-around;
-}
+    justify-content: space-between; /* better spacing */
+    margin-bottom: 25px;
+  }
   
-button{
-    font-family: Overpassb;
+  
+  button.rate-btn {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: none;
     color: hsl(217, 12%, 63%);
-    background-color:  hsl(217, 12%, 20%);
-}
-
-button:hover{
+    background-color: hsl(217, 12%, 20%);
     cursor: pointer;
-    background-color: hsl(0, 100%, 100%);
     font-family: Overpassb;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    color: hsl(217, 12%, 63%);
-}
+  }
+  
+  button.rate-btn.active {
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+  }
+  
 
 #submit {
     margin-top: 15px;
@@ -113,15 +116,96 @@ button:hover{
     color: white;
     font-family: Overpassb;
     cursor: pointer;
+
+
   }
 
-
-  .rate-btn.active {
-    background-color: hsl(25, 97%, 53%);
+  #nextBtn, #submitBtn {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
     color: white;
+    background-color: hsl(25, 87%, 30%);
+    font-family: Overpassb;
+    cursor: pointer;
+    margin-top: 10px;
   }
   
-  @media (max-width: 480px) {
+  #nextBtn:hover, #submitBtn:hover {
+    background-color: hsl(25, 97%, 53%);
+  }
+  
+  textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+    font-family: Overpass;
+    color: #333;
+  }
+  
+  textarea:focus {
+    outline: none;
+    border: 2px solid hsl(25, 97%, 53%);
+  }
+  
+  .comment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .comment-section textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid hsl(216, 12%, 30%);
+    background-color: hsl(213, 19%, 18%);
+    color: white;
+    resize: none;
+    font-size: 15px;
+    outline: none;
+  }
+  
+  .comment-section textarea::placeholder {
+    color: hsl(216, 12%, 60%);
+  }
+  
+  .comment-section .submit-btn {
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    /* transition: background 0.3s ease; */
+  }
+  
+  .comment-section .submit-btn:hover {
+    background-color: white;
+    color: hsl(25, 97%, 53%);
+  }
+
+    
+  .hidden {
+    display: none;
+  }
+  
+
+
+  /* .rate-btn.active {
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+  } */
+  
+  /* @media (max-width: 480px) {
     .how {
       font-size: 22px;
       text-align: center;
@@ -152,7 +236,7 @@ button:hover{
     .star {
       height: 40px;
       width: 40px;
-      margin: 0 auto 20px; /* center on mobile */
+      margin: 0 auto 20px;
     }
   
     .box {
@@ -160,9 +244,9 @@ button:hover{
       padding: 20px;
     }
   }
-  
+   */
 
-  @media (min-width: 481px) and (max-width: 768px) {
+  /* @media (min-width: 481px) and (max-width: 768px) {
     .how {
       font-size: 26px;
     }
@@ -173,4 +257,4 @@ button:hover{
       width: 45px;
       height: 45px;
     }
-  }
+  } */

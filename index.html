@@ -2,64 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="index.css">
-
-  
   <title>Interactive rating component</title>
-
-
-  
 </head>
 <body>
   <div class="box">
-    <div class="star">
-      <img src="./images/icon-star.svg" alt="">
+    
+    <div class="rating-section">
+      <div class="star">
+        <img src="./images/icon-star.svg" alt="">
+      </div>
+      <div class="box2">
+        <p class="how">How did we do?</p>
+        <p class="info">Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+
+        <div class="buts">
+          <button class="rate-btn">1</button>
+          <button class="rate-btn">2</button>
+          <button class="rate-btn">3</button>
+          <button class="rate-btn">4</button>
+          <button class="rate-btn">5</button>
+        </div>
+
+        <button id="nextBtn" class="submit-btn">Next</button>
+      </div>
     </div>
-   <div class="box2">
-    <p class="how">How did we do?</p>
-    <p class="info">Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
-
-    <div class="buts">
-      <button class="rate-btn">1</button>
-      <button class="rate-btn">2</button>
-      <button class="rate-btn">3</button>
-      <button class="rate-btn">4</button>
-      <button class="rate-btn">5</button>
+  
+    
+    <div class="comment-section hidden">
+      <div class="box2">
+        <p class="how">Comment on our services</p>
+        <textarea id="commentBox" placeholder="Write your feedback..."></textarea>
+        <button id="submitBtn" class="submit-btn">Next</button>
+      </div>
     </div>
-
-    <button id="submit" class="submit-btn">Submit</button>
-
-   </div>
-
   </div>
-</body>
 
+  <script>
+    const rateButtons = document.querySelectorAll('.rate-btn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const ratingSection = document.querySelector('.rating-section');
+    const commentSection = document.querySelector('.comment-section');
+    const commentBox = document.getElementById('commentBox');
 
-</html>
-<script>
-  const buttons = document.querySelectorAll('.rate-btn');
-  let selectedRating = null;
+    let selectedRating = null;
 
-  buttons.forEach(button => { 
-    button.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      button.classList.add('active');
-      selectedRating = button.textContent;
+    // select rating
+    rateButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        rateButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedRating = btn.textContent;
+      });
     });
 
-   })
+    nextBtn.addEventListener('click', () => {
+      if (!selectedRating) {
+        alert('Please select a rating first.');
+        return;
+      }
 
-   document.querySelector('.submit-btn').addEventListener('click', () => {
-    if(selectedRating){
-    localStorage.setItem('rating', selectedRating);
-    window.location.href='thankyou.html';
-  }else{
-    alert('Please Select a rating before submitting');
-   }
+      ratingSection.style.display = 'none';
+      commentSection.classList.remove('hidden');
+    });
 
-  });
+    submitBtn.addEventListener('click', () => {
+      const comment = commentBox.value.trim();
+      if (!comment) {
+        alert('Please enter a comment before continuing.');
+        return;
+      }
 
+      localStorage.setItem('rating', selectedRating);
+      // localStorage.setItem('comment', comment);
 
-  
-</script>
+      window.location.href = 'thankyou.html';
+    });
+  </script>
+</body>
+</html>
