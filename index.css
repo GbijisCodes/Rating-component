@@ -132,7 +132,7 @@ body{
     margin-top: 10px;
   }
   
-  #nextBtn:hover, #submitBtn:hover  #backBtn:hover{
+  #nextBtn:hover, #submitBtn:hover, #backBtn:hover{
     background-color: hsl(25, 97%, 53%);
   }
   
