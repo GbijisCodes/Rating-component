@@ -120,7 +120,7 @@ body{
 
   }
 
-  #nextBtn, #submitBtn {
+  #nextBtn, #submitBtn , #backBtn{
     width: 100%;
     border: none;
     border-radius: 8px;
@@ -132,7 +132,7 @@ body{
     margin-top: 10px;
   }
   
-  #nextBtn:hover, #submitBtn:hover {
+  #nextBtn:hover, #submitBtn:hover  #backBtn:hover{
     background-color: hsl(25, 97%, 53%);
   }
   

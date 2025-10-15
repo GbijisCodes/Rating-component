@@ -34,6 +34,7 @@
       <div class="box2">
         <p class="how">Comment on our services</p>
         <textarea id="commentBox" placeholder="Write your feedback..."></textarea>
+        <button id="backBtn" class="submit-btn">Back</button>
         <button id="submitBtn" class="submit-btn">Next</button>
       </div>
     </div>
@@ -46,10 +47,11 @@
     const ratingSection = document.querySelector('.rating-section');
     const commentSection = document.querySelector('.comment-section');
     const commentBox = document.getElementById('commentBox');
-
+    const backBtn = document.getElementById('backBtn');
+  
     let selectedRating = null;
-
-    // select rating
+  
+    // Select rating
     rateButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         rateButtons.forEach(b => b.classList.remove('active'));
@@ -57,29 +59,38 @@
         selectedRating = btn.textContent;
       });
     });
-
+  
+    // Move to comment section
     nextBtn.addEventListener('click', () => {
       if (!selectedRating) {
         alert('Please select a rating first.');
         return;
       }
-
-      ratingSection.style.display = 'none';
+  
+      ratingSection.classList.add('hidden');
       commentSection.classList.remove('hidden');
     });
-
+  
+    // ✅ Go back to rating section
+    backBtn.addEventListener('click', () => {
+      commentSection.classList.add('hidden');
+      ratingSection.classList.remove('hidden');
+    });
+  
+    // Submit comment
     submitBtn.addEventListener('click', () => {
       const comment = commentBox.value.trim();
       if (!comment) {
         alert('Please enter a comment before continuing.');
         return;
       }
-
+  
       localStorage.setItem('rating', selectedRating);
       // localStorage.setItem('comment', comment);
-
+  
       window.location.href = 'thankyou.html';
     });
   </script>
+  
 </body>
 </html>
